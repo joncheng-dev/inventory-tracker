@@ -16,6 +16,8 @@ function NewItemForm(props) {
   }
   return (
     <React.Fragment>
+      <hr />
+      <h1>Form: Add New Item</h1>
       <form onSubmit={handleNewItemFormSubmission}>
         <input type="text" name="name" placeholder="Name" />
         <input type="text" name="type" placeholder="Type" />
