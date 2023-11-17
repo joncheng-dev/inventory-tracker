@@ -63,7 +63,9 @@ class ItemControl extends React.Component {
 
   handleDecrementingItemQuantity = (id) => {
     const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
-    targetItemToModifyQuantityOf.quantity -= 1;
+    if (targetItemToModifyQuantityOf.quantity > 0) {
+      targetItemToModifyQuantityOf.quantity -= 1;
+    }
     const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(targetItemToModifyQuantityOf);
     this.setState({
       mainItemList: modifiedItemList,
