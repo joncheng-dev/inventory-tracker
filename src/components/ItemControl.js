@@ -61,6 +61,15 @@ class ItemControl extends React.Component {
     });
   };
 
+  handleDecrementingItemQuantity = (id) => {
+    const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
+    targetItemToModifyQuantityOf.quantity -= 1;
+    const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(targetItemToModifyQuantityOf);
+    this.setState({
+      mainItemList: modifiedItemList,
+    });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -69,7 +78,12 @@ class ItemControl extends React.Component {
       buttonText = "Back to Item List";
     } else if (this.state.selectedItem != null) {
       currentlyVisibleState = (
-        <ItemDetail itemToShow={this.state.selectedItem} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingItem} />
+        <ItemDetail
+          itemToShow={this.state.selectedItem}
+          onClickingEdit={this.handleEditClick}
+          onClickingDelete={this.handleDeletingItem}
+          onClickingTakeOne={this.handleDecrementingItemQuantity}
+        />
       );
       buttonText = "Back to Item List";
     } else if (this.state.formVisibleToUser) {
