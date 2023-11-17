@@ -12,6 +12,7 @@ function ItemDetail(props) {
       <p>Type: {itemToShow.type}</p>
       <p>Volume: {itemToShow.volume}</p>
       <p>Quantity: {itemToShow.quantity}</p>
+      <button onClick={props.onClickingEdit}>Edit Item Details</button>
       <hr />
     </React.Fragment>
   );
@@ -19,6 +20,7 @@ function ItemDetail(props) {
 
 ItemDetail.propTypes = {
   itemToShow: PropTypes.object,
+  onClickingEdit: PropTypes.func,
 };
 
 export default ItemDetail;
