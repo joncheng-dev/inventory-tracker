@@ -9,8 +9,8 @@ function NewItemForm(props) {
     props.onNewItemCreation({
       name: event.target.name.value,
       type: event.target.type.value,
-      volume: event.target.volume.value,
-      quantity: event.target.quantity.value,
+      volume: Number(event.target.volume.value),
+      quantity: Number(event.target.quantity.value),
       id: v4(),
     });
   }

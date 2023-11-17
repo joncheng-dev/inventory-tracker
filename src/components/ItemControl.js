@@ -1,6 +1,6 @@
 import React from "react";
-import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
+import ItemList from "./ItemList";
 import ItemDetail from "./ItemDetail";
 
 class ItemControl extends React.Component {
@@ -26,7 +26,10 @@ class ItemControl extends React.Component {
 
   handleAddingNewItemToList = (itemToAdd) => {
     const modifiedItemList = this.state.mainItemList.concat(itemToAdd);
-    this.setState({ mainItemList: modifiedItemList, formVisibleToUser: false });
+    this.setState({
+      formVisibleToUser: false,
+      mainItemList: modifiedItemList,
+    });
   };
 
   handleChangingSelectedItem = (id) => {
