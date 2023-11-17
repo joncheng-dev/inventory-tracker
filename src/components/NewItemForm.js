@@ -18,7 +18,7 @@ function NewItemForm(props) {
     <React.Fragment>
       <form onSubmit={handleNewItemFormSubmission}>
         <input type="text" name="name" placeholder="Name" />
-        <input type="text" name="type" placeholder="Type of Glassware" />
+        <input type="text" name="type" placeholder="Type" />
         <input type="number" name="volume" placeholder="Volume" />
         <input type="number" name="quantity" placeholder="Quantity" />
         <button type="submit">Add Item to Inventory</button>

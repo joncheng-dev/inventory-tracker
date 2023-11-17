@@ -1,5 +1,6 @@
 import React from "react";
 import ItemList from "./ItemList";
+import NewItemForm from "./NewItemForm";
 
 class ItemControl extends React.Component {
   constructor(props) {
@@ -14,11 +15,21 @@ class ItemControl extends React.Component {
     this.setState((prevState) => ({ formVisibleToUser: !prevState.formVisibleToUser }));
   };
 
+  handleAddingNewItemToList = (itemToAdd) => {
+    const modifiedItemList = this.state.mainItemList.concat(itemToAdd);
+    this.setState({ mainItemList: modifiedItemList, formVisibleToUser: false });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    currentlyVisibleState = <ItemList itemList={this.state.mainItemList} />;
-    buttonText = "Add Item";
+    if (this.state.formVisibleToUser) {
+      currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList} />;
+      buttonText = "Back to Item List";
+    } else {
+      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} />;
+      buttonText = "Add Item";
+    }
 
     return (
       <React.Fragment>
