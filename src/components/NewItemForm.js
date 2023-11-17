@@ -19,7 +19,7 @@ function NewItemForm(props) {
     <React.Fragment>
       <hr />
       <h1>Form: Add New Item</h1>
-      <ReusableForm formSubmissionHandler={handleNewItemFormSubmission} buttonText={"Add Item"} />
+      <ReusableForm formSubmissionHandler={handleNewItemFormSubmission} buttonText="Add Item" />
     </React.Fragment>
   );
 }
