@@ -75,16 +75,21 @@ class ItemControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+    let messageToUser = null;
     if (this.state.editing) {
       currentlyVisibleState = <EditItemForm item={this.state.selectedItem} onEditItem={this.handleEditingItemInList} />;
       buttonText = "Back to Item List";
     } else if (this.state.selectedItem != null) {
+      if (this.state.selectedItem.quantity === 0) {
+        messageToUser = "Out of Stock";
+      }
       currentlyVisibleState = (
         <ItemDetail
           itemToShow={this.state.selectedItem}
           onClickingEdit={this.handleEditClick}
           onClickingDelete={this.handleDeletingItem}
           onClickingTakeOne={this.handleDecrementingItemQuantity}
+          messageOnQuantity={messageToUser}
         />
       );
       buttonText = "Back to Item List";
