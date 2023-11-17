@@ -53,6 +53,14 @@ class ItemControl extends React.Component {
     });
   };
 
+  handleDeletingItem = (id) => {
+    const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== id);
+    this.setState({
+      mainItemList: modifiedItemList,
+      selectedItem: null,
+    });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -60,7 +68,9 @@ class ItemControl extends React.Component {
       currentlyVisibleState = <EditItemForm item={this.state.selectedItem} onEditItem={this.handleEditingItemInList} />;
       buttonText = "Back to Item List";
     } else if (this.state.selectedItem != null) {
-      currentlyVisibleState = <ItemDetail itemToShow={this.state.selectedItem} onClickingEdit={this.handleEditClick} />;
+      currentlyVisibleState = (
+        <ItemDetail itemToShow={this.state.selectedItem} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingItem} />
+      );
       buttonText = "Back to Item List";
     } else if (this.state.formVisibleToUser) {
       currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList} />;
