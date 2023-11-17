@@ -1,6 +1,7 @@
 import React from "react";
 import ItemList from "./ItemList";
 import NewItemForm from "./NewItemForm";
+import ItemDetail from "./ItemDetail";
 
 class ItemControl extends React.Component {
   constructor(props) {
@@ -8,11 +9,19 @@ class ItemControl extends React.Component {
     this.state = {
       formVisibleToUser: false,
       mainItemList: [],
+      selectedItem: null,
     };
   }
 
   handleClick = () => {
-    this.setState((prevState) => ({ formVisibleToUser: !prevState.formVisibleToUser }));
+    if (this.state.selectedItem != null) {
+      this.setState({
+        formVisibleToUser: false,
+        selectedItem: null,
+      });
+    } else {
+      this.setState((prevState) => ({ formVisibleToUser: !prevState.formVisibleToUser }));
+    }
   };
 
   handleAddingNewItemToList = (itemToAdd) => {
@@ -20,14 +29,22 @@ class ItemControl extends React.Component {
     this.setState({ mainItemList: modifiedItemList, formVisibleToUser: false });
   };
 
+  handleChangingSelectedItem = (id) => {
+    const selectedItem = this.state.mainItemList.filter((entry) => entry.id === id)[0];
+    this.setState({ selectedItem: selectedItem });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleToUser) {
+    if (this.state.selectedItem != null) {
+      currentlyVisibleState = <ItemDetail itemToShow={this.state.selectedItem} />;
+      buttonText = "Back to Item List";
+    } else if (this.state.formVisibleToUser) {
       currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItemToList} />;
       buttonText = "Back to Item List";
     } else {
-      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} />;
+      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} onItemSelection={this.handleChangingSelectedItem} />;
       buttonText = "Add Item";
     }
 
