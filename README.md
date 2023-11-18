@@ -21,7 +21,7 @@ _This app is the result of a day long individual project to demonstrate understa
 
 ## Component Diagram
 
-<img src="./src/img/component diagram.jpg" width="40%">
+<img src="./src/img/component diagram.jpg" width="60%">
 
 ## Setup/Installation Requirements
 
