@@ -1,8 +1,8 @@
-# _{Application Name}_
+# Laboratory Glassware Inventory Tracker
 
-#### By _**{List of contributors}**_
+#### By Jonathan Cheng
 
-#### _{Brief description of application}_
+#### This web application is an inventory tracker for laboratory glassware. A user can add item entries representing a specific piece of laboratory glassware with properties such as name, type, volume (how much the glassware can store), and quantity (number of this specific glassware the lab is in possession of). The user may choose to edit any entries or delete them entirely. The list will be updated to reflect any changes.
 
 ## Technologies Used
 
@@ -18,11 +18,11 @@
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This app is the result of a day long individual project to demonstrate understanding of introduction to React fundamental concepts. I use create-react-app for a quick React set up -- SPA (single page application). My planning of the project, of how the components are organized is depicted in the screenshot below, labeled "Component Diagram". I use one class component (ItemControl) to handle state and all state changes. The rest of the components are functional, and do not directly manipulate state._
 
 ## Component Diagram
 
-<img src="src/img/ComponentDiagram.png">
+<img src="./src/img/component diagram.jpg">
 
 ## Setup/Installation Requirements
 
