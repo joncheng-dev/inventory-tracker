@@ -19,6 +19,9 @@ function EditItemForm(props) {
 
   return (
     <React.Fragment>
+      <hr />
+      <h1>Edit Item Entry</h1>
+      <hr />
       <ReusableForm formSubmissionHandler={handleEditItemFormSubmission} buttonText="Submit Changes" />
     </React.Fragment>
   );

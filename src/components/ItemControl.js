@@ -106,7 +106,6 @@ class ItemControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    let messageToUser = null;
     if (this.state.editing) {
       currentlyVisibleState = <EditItemForm item={this.state.selectedItem} onEditItem={this.handleEditingItemInList} />;
       buttonText = "Back to Item List";
