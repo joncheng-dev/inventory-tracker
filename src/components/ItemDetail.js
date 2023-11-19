@@ -11,23 +11,29 @@ function ItemDetail(props) {
     <React.Fragment>
       <hr />
       <h1>Item Details</h1>
-      <h3>
-        <span style={outOfStockMessageStyle}>{props.messageOnQuantity}</span>
-      </h3>
       <hr />
       <div className="row">
         <div className="col-8">
           <h3>Name: {itemToShow.name}</h3>
-          <p>Type: {itemToShow.type}</p>
-          <p>Volume: {itemToShow.volume}</p>
-          <p>Quantity: {itemToShow.quantity}</p>
         </div>
         <div className="col-4">
+          <p>
+            <span style={outOfStockMessageStyle}>{itemToShow.msgForOutOfStock}</span>
+          </p>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-8">
+          <br />
+          <p>Type: {itemToShow.type}</p>
+          <p>Volume: {itemToShow.volume}</p>
+          <p>Quantity Available: {itemToShow.quantity}</p>
+        </div>
+        <div className="col-4">
+          <br />
           <button onClick={() => onClickingAddOne(itemToShow.id)}>Return One</button>
           <br />
-          <br />
           {itemToShow.quantity}
-          <br />
           <br />
           <button onClick={() => onClickingTakeOne(itemToShow.id)}>Take One</button>
         </div>
@@ -46,7 +52,6 @@ ItemDetail.propTypes = {
   onClickingDelete: PropTypes.func,
   onClickingTakeOne: PropTypes.func,
   onClickingAddOne: PropTypes.func,
-  messageOnQuantity: PropTypes.string,
 };
 
 export default ItemDetail;

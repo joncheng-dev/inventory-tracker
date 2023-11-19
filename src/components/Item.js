@@ -14,7 +14,7 @@ function Item(props) {
             <h3>Name: {props.name}</h3>
             <p>Type: {props.type}</p>
             <p>Volume: {props.volume}</p>
-            <p>Quantity: {props.quantity}</p>
+            <p>Quantity Available: {props.quantity}</p>
           </div>
           <div className="col-4">
             <p>
