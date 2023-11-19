@@ -22,7 +22,7 @@ _This app is the result of a day long individual project to demonstrate understa
 
 ## Component Diagram
 
-<img src="./src/img/component diagram.jpg" width="70%">
+<img src="./src/img/component diagram.jpg" width="90%">
 
 ## Setup/Installation Requirements
 
@@ -56,7 +56,9 @@ _3. Clone the repository from the GitHub link by entering in this command:_
 
 ## Known Bugs
 
-- _No currently known bugs. If you happen upon any, please report your find with a descriptive message to joncheng.dev@gmail.com_
+- _Forms accept empty spaces as input in fields, bypassing 'required'._
+- _Unintended effect: Upon successfully editing an item, the item changes position in the list of items displayed._
+- _If you happen upon any, please report your find with a descriptive message to joncheng.dev@gmail.com_
 
 ## License
 
