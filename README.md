@@ -2,7 +2,7 @@
 
 #### By Jonathan Cheng
 
-#### This web application is an inventory tracker for laboratory glassware. The user can add item entries representing a specific piece of laboratory glassware with properties such as name, type, volume (how much the glassware can store), and quantity (number of this specific glassware the lab is in possession of). The user may choose to edit entries or delete them entirely. The list will be updated to reflect any changes.
+#### This web application is an inventory tracker for laboratory glassware. The user can add item entries representing a specific kind of laboratory glassware with properties such as name, type, volume (how much the glassware can store), and quantity (number of this specific glassware the lab is in possession of). The user may choose to edit entries or delete them entirely. A decrement button is available to denote that an item is being used. An increment button is for if the item is being put back. The item entries will be updated to reflect any changes.
 
 ## Technologies Used
 
@@ -22,7 +22,7 @@ _This app is the result of a day long individual project to demonstrate understa
 
 ## Component Diagram
 
-<img src="./src/img/component diagram.jpg" width="60%">
+<img src="./src/img/component diagram.jpg" width="70%">
 
 ## Setup/Installation Requirements
 
@@ -56,7 +56,7 @@ _3. Clone the repository from the GitHub link by entering in this command:_
 
 ## Known Bugs
 
-- _Kindly report any bugs you find with a descriptive message to joncheng.dev@gmail.com_
+- _No currently known bugs. If you happen upon any, please report your find with a descriptive message to joncheng.dev@gmail.com_
 
 ## License
 
