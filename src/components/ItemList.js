@@ -15,6 +15,7 @@ function ItemList(props) {
           type={item.type}
           volume={item.volume}
           quantity={item.quantity}
+          msgForOutOfStock={item.msgForOutOfStock}
           id={item.id}
           key={item.id}
         />

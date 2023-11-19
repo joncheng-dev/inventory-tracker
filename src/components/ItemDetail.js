@@ -23,7 +23,7 @@ function ItemDetail(props) {
           <p>Quantity: {itemToShow.quantity}</p>
         </div>
         <div className="col-4">
-          <button onClick={() => onClickingAddOne(itemToShow.id)}>Add One</button>
+          <button onClick={() => onClickingAddOne(itemToShow.id)}>Return One</button>
           <br />
           <br />
           {itemToShow.quantity}

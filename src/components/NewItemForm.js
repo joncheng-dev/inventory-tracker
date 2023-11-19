@@ -12,6 +12,7 @@ function NewItemForm(props) {
       type: event.target.type.value,
       volume: Number(event.target.volume.value),
       quantity: Number(event.target.quantity.value),
+      msgForOutOfStock: "",
       id: v4(),
     });
   }

@@ -63,22 +63,44 @@ class ItemControl extends React.Component {
 
   handleDecrementingItemQuantity = (id) => {
     const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
-    if (targetItemToModifyQuantityOf.quantity > 0) {
-      targetItemToModifyQuantityOf.quantity -= 1;
+    if (targetItemToModifyQuantityOf.quantity > 1) {
+      const updatedItem = Object.assign(targetItemToModifyQuantityOf, (targetItemToModifyQuantityOf.quantity -= 1));
+      const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
+      this.setState({
+        mainItemList: modifiedItemList,
+      });
+    } else if (targetItemToModifyQuantityOf.quantity === 1) {
+      const updatedItem = Object.assign(
+        targetItemToModifyQuantityOf,
+        (targetItemToModifyQuantityOf.quantity -= 1),
+        (targetItemToModifyQuantityOf.msgForOutOfStock = "Out of Stock")
+      );
+      const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
+      this.setState({
+        mainItemList: modifiedItemList,
+      });
     }
-    const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(targetItemToModifyQuantityOf);
-    this.setState({
-      mainItemList: modifiedItemList,
-    });
   };
 
   handleIncrementingItemQuantity = (id) => {
     const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
-    const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(targetItemToModifyQuantityOf);
-    targetItemToModifyQuantityOf.quantity += 1;
-    this.setState({
-      mainItemList: modifiedItemList,
-    });
+    if (targetItemToModifyQuantityOf.quantity === 0) {
+      const updatedItem = Object.assign(
+        targetItemToModifyQuantityOf,
+        (targetItemToModifyQuantityOf.quantity += 1),
+        (targetItemToModifyQuantityOf.msgForOutOfStock = "")
+      );
+      const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
+      this.setState({
+        mainItemList: modifiedItemList,
+      });
+    } else {
+      const updatedItem = Object.assign(targetItemToModifyQuantityOf, (targetItemToModifyQuantityOf.quantity += 1));
+      const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
+      this.setState({
+        mainItemList: modifiedItemList,
+      });
+    }
   };
 
   render() {
