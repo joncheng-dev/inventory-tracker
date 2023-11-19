@@ -62,19 +62,15 @@ class ItemControl extends React.Component {
   };
 
   handleDecrementingItemQuantity = (id) => {
-    const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
-    if (targetItemToModifyQuantityOf.quantity > 1) {
-      const updatedItem = Object.assign(targetItemToModifyQuantityOf, (targetItemToModifyQuantityOf.quantity -= 1));
+    const targetItem = this.state.mainItemList.filter((item) => item.id === id)[0];
+    if (targetItem.quantity > 1) {
+      const updatedItem = Object.assign(targetItem, (targetItem.quantity -= 1));
       const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
       this.setState({
         mainItemList: modifiedItemList,
       });
-    } else if (targetItemToModifyQuantityOf.quantity === 1) {
-      const updatedItem = Object.assign(
-        targetItemToModifyQuantityOf,
-        (targetItemToModifyQuantityOf.quantity -= 1),
-        (targetItemToModifyQuantityOf.msgForOutOfStock = "Out of Stock")
-      );
+    } else if (targetItem.quantity === 1) {
+      const updatedItem = Object.assign(targetItem, (targetItem.quantity -= 1), (targetItem.msgForOutOfStock = "Out of Stock"));
       const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
       this.setState({
         mainItemList: modifiedItemList,
@@ -83,19 +79,15 @@ class ItemControl extends React.Component {
   };
 
   handleIncrementingItemQuantity = (id) => {
-    const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
-    if (targetItemToModifyQuantityOf.quantity === 0) {
-      const updatedItem = Object.assign(
-        targetItemToModifyQuantityOf,
-        (targetItemToModifyQuantityOf.quantity += 1),
-        (targetItemToModifyQuantityOf.msgForOutOfStock = "")
-      );
+    const targetItem = this.state.mainItemList.filter((item) => item.id === id)[0];
+    if (targetItem.quantity === 0) {
+      const updatedItem = Object.assign(targetItem, (targetItem.quantity += 1), (targetItem.msgForOutOfStock = ""));
       const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
       this.setState({
         mainItemList: modifiedItemList,
       });
     } else {
-      const updatedItem = Object.assign(targetItemToModifyQuantityOf, (targetItemToModifyQuantityOf.quantity += 1));
+      const updatedItem = Object.assign(targetItem, (targetItem.quantity += 1));
       const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(updatedItem);
       this.setState({
         mainItemList: modifiedItemList,
@@ -131,7 +123,9 @@ class ItemControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <button type="button" className="btn btn-secondary" onClick={this.handleClick}>
+          {buttonText}
+        </button>
       </React.Fragment>
     );
   }

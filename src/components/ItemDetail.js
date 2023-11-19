@@ -31,16 +31,24 @@ function ItemDetail(props) {
         </div>
         <div className="col-4">
           <br />
-          <button onClick={() => onClickingAddOne(itemToShow.id)}>Return One</button>
+          <button type="button" className="btn btn-success" onClick={() => onClickingAddOne(itemToShow.id)}>
+            Return One
+          </button>
           <br />
           {itemToShow.quantity}
           <br />
-          <button onClick={() => onClickingTakeOne(itemToShow.id)}>Take One</button>
+          <button type="button" className="btn btn-warning" onClick={() => onClickingTakeOne(itemToShow.id)}>
+            Take One
+          </button>
         </div>
       </div>
       <hr />
-      <button onClick={props.onClickingEdit}>Edit Item Details</button>
-      <button onClick={() => onClickingDelete(itemToShow.id)}>Remove Item Listing</button>
+      <button type="button" className="btn btn-secondary" onClick={props.onClickingEdit}>
+        Edit Item Details
+      </button>
+      <button type="button" className="btn btn-danger" onClick={() => onClickingDelete(itemToShow.id)}>
+        Remove Item Listing
+      </button>
       <hr />
     </React.Fragment>
   );
