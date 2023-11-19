@@ -6,7 +6,7 @@ function ItemDetail(props) {
     color: "red",
   };
 
-  const { itemToShow, onClickingDelete, onClickingTakeOne } = props;
+  const { itemToShow, onClickingDelete, onClickingTakeOne, onClickingAddOne } = props;
   return (
     <React.Fragment>
       <hr />
@@ -15,13 +15,26 @@ function ItemDetail(props) {
         <span style={outOfStockMessageStyle}>{props.messageOnQuantity}</span>
       </h3>
       <hr />
-      <h3>Name: {itemToShow.name}</h3>
-      <p>Type: {itemToShow.type}</p>
-      <p>Volume: {itemToShow.volume}</p>
-      <p>Quantity: {itemToShow.quantity}</p>
-      <button onClick={() => onClickingTakeOne(itemToShow.id)}>Take One from Inventory</button>
+      <div className="row">
+        <div className="col-8">
+          <h3>Name: {itemToShow.name}</h3>
+          <p>Type: {itemToShow.type}</p>
+          <p>Volume: {itemToShow.volume}</p>
+          <p>Quantity: {itemToShow.quantity}</p>
+        </div>
+        <div className="col-4">
+          <button onClick={() => onClickingAddOne(itemToShow.id)}>Add One</button>
+          <br />
+          <br />
+          {itemToShow.quantity}
+          <br />
+          <br />
+          <button onClick={() => onClickingTakeOne(itemToShow.id)}>Take One</button>
+        </div>
+      </div>
+      <hr />
       <button onClick={props.onClickingEdit}>Edit Item Details</button>
-      <button onClick={() => onClickingDelete(itemToShow.id)}>Delete Item from Inventory</button>
+      <button onClick={() => onClickingDelete(itemToShow.id)}>Remove Item Listing</button>
       <hr />
     </React.Fragment>
   );
@@ -32,6 +45,7 @@ ItemDetail.propTypes = {
   onClickingEdit: PropTypes.func,
   onClickingDelete: PropTypes.func,
   onClickingTakeOne: PropTypes.func,
+  onClickingAddOne: PropTypes.func,
   messageOnQuantity: PropTypes.string,
 };
 

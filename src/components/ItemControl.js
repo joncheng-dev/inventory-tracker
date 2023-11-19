@@ -72,6 +72,15 @@ class ItemControl extends React.Component {
     });
   };
 
+  handleIncrementingItemQuantity = (id) => {
+    const targetItemToModifyQuantityOf = this.state.mainItemList.filter((item) => item.id === id)[0];
+    const modifiedItemList = this.state.mainItemList.filter((item) => item.id !== this.state.selectedItem.id).concat(targetItemToModifyQuantityOf);
+    targetItemToModifyQuantityOf.quantity += 1;
+    this.setState({
+      mainItemList: modifiedItemList,
+    });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -89,6 +98,7 @@ class ItemControl extends React.Component {
           onClickingEdit={this.handleEditClick}
           onClickingDelete={this.handleDeletingItem}
           onClickingTakeOne={this.handleDecrementingItemQuantity}
+          onClickingAddOne={this.handleIncrementingItemQuantity}
           messageOnQuantity={messageToUser}
         />
       );

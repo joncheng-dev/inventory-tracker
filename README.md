@@ -2,13 +2,14 @@
 
 #### By Jonathan Cheng
 
-#### This web application is an inventory tracker for laboratory glassware. The user can add item entries representing a specific piece of laboratory glassware with properties such as name, type, volume (how much the glassware can store), and quantity (number of this specific glassware the lab is in possession of). The user may choose to edit any entries or delete them entirely. The list will be updated to reflect any changes.
+#### This web application is an inventory tracker for laboratory glassware. The user can add item entries representing a specific piece of laboratory glassware with properties such as name, type, volume (how much the glassware can store), and quantity (number of this specific glassware the lab is in possession of). The user may choose to edit entries or delete them entirely. The list will be updated to reflect any changes.
 
 ## Technologies Used
 
 - _JavaScript_
 - _HTML_
 - _CSS_
+- _Bootstrap_
 - _Node.js v18.17.1_
 - _NPM v9.6.7_
 - _React_
